@@ -3,16 +3,23 @@
 <!-- Augmented Reality on the Web in 10 lines of html! https://github.com/jeromeetienne/ar.js -->
 <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
 <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
-	
+<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+												  
 <body style='margin : 0px; overflow: hidden;'>
 	<a-scene embedded arjs='sourceType: webcam;'>
 		<a-assets>
 			<a-asset-item id="Wall-dae" src="models/WallSectionTest.dae"></a-asset-item>
+			<a-asset-item id="Wall-FBX" src="models/WallSectionTest.fbx"></a-asset-item>
 		</a-assets>
 												  
 		<a-marker preset='hiro'>
-			<!-- <a-entity collada-model=”url(models/WallSectionTest.dae)” scale="0.03125 0.03125 0.03125"></a-entity> -->
-			<a-collada-model position="0 0 0" rotation="0 0 0" scale="0.3125 0.3125 0.3125" src="#Wall-dae"></a-collada-model>
+			
+			<a-entity
+			   position="0 0 0" rotation="0 0 0" scale="0.3125 0.3125 0.3125"
+			   fbx-model="src: url(models/WallSectionTest.fbx);">
+			</a-entity>
+			
+			<!-- <a-collada-model position="0 0 0" rotation="0 0 0" scale="0.3125 0.3125 0.3125" src="#Wall-dae"></a-collada-model> -->
 		</a-marker>
 	<a-entity camera></a-entity>
 	</a-scene>
